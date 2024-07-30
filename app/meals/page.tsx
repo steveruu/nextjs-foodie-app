@@ -3,6 +3,9 @@ import Link from "next/link";
 import MealsGrid from "@/components/Meals/MealsGrid";
 
 export default function Meals() {
+  // tohle je serverova komponenta, muzeme primo nacitat data z DB
+
+
   return (
     <>
       <header className={classes.header}>
