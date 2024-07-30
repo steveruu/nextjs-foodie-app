@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import MainHeader from "../components/MainHeader/MainHeader";
-import MainHeaderBackground from "../components/MainHeader/MainHeaderBackground";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "NextFood",
-  description: "Created by NextFood",
+  description: "NextFood - a food sharing platform",
 };
 
 export default function RootLayout({
