@@ -177,6 +177,7 @@ db.prepare(`
         creator_email TEXT NOT NULL
     )
 `).run();
+console.log("Created a table MEALS a pokud tohle Vercel logne a pak mi bude SQLite psát \"SqliteError: no such table: meals\" tak srát Vercel a půjdu si to hostovat k sousedům. ") 
 
 async function initData() {
     const stmt = db.prepare(`
