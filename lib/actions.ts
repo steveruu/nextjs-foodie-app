@@ -2,21 +2,12 @@
 import { redirect } from "next/navigation";
 import { createMeal } from "./meals";
 
-const isInvalidText = (text: FormDataEntryValue | null) => {
+const isInvalidText = (text: FormDataEntryValue | null, charLimit: number = 100) => {
     return (
         !text ||
         text.toString().trim() === "" ||
         text.toString().trim().length < 3 ||
-        text.toString().trim().length > 50
-    );
-};
-
-const invalidInstructions = (instructions: FormDataEntryValue | null) => {
-    return (
-        !instructions ||
-        instructions.toString().trim() === "" ||
-        instructions.toString().trim().length < 10 ||
-        instructions.toString().trim().length > 1500
+        text.toString().trim().length > charLimit
     );
 };
 
@@ -31,20 +22,16 @@ export async function shareMeal(formData: FormData) {
     };
 
     if (
-        isInvalidText(meal.title) ||
-        isInvalidText(meal.summary) ||
-        invalidInstructions(meal.instructions) ||
+        isInvalidText(meal.title, 75) ||
+        isInvalidText(meal.summary, 200) ||
+        isInvalidText(meal.instructions, 1500) ||
         isInvalidText(meal.creator) ||
-        isInvalidText(meal.creator_email) ||
+        isInvalidText(meal.creator_email, 50) ||
         !meal.creator_email?.toString().includes("@") ||
         !meal.image ||
         meal.image.size === 0
     ) {
-        throw new Error("Invalid input. TODO: dodelat");
-        return {
-            status: 400,
-            message: "Invalid input. ",
-        }
+        await createMeal(meal as any);
     }
 
     await createMeal(meal as any);
