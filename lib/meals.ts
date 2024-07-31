@@ -2,6 +2,7 @@ import sql from "better-sqlite3";
 import slugify from "slugify";
 import xss from "xss";
 import fs from "node:fs";
+import path from "node:path";
 
 interface MealDB {
     slug: string;
@@ -13,7 +14,7 @@ interface MealDB {
     creator_email: string;
 }
 
-const db = sql("meals.db");
+const db = sql(path.resolve(__dirname, "meals.db"));
 
 export async function getMeals() {
     await new Promise((resolve) => setTimeout(resolve, 1212)); // TODO: remove
