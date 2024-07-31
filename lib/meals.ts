@@ -14,7 +14,7 @@ interface MealDB {
     creator_email: string;
 }
 
-const db = sql(path.resolve(__dirname, "meals.db"));
+const db = sql(path.resolve(process.cwd(), "meals.db"));
 
 export async function getMeals() {
     await new Promise((resolve) => setTimeout(resolve, 1212)); // TODO: remove
