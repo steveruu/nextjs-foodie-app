@@ -23,7 +23,7 @@ export default function Home() {
       <main>
         <section className={classes.section}>
           <h2>How it works</h2>
-          <p>NextFood is a platform that allows sharing your favorite recipes with the world. It's a place to discover new recipes, and to connect with other food lovers.</p>
+          <p>NextFood is a platform that allows sharing your favorite recipes with the world. It&apos;s a place to discover new recipes, and to connect with other food lovers.</p>
           <p>NextFood is built on the Ethereum blockchain, and uses smart contracts to ensure that the recipes are safe and secure.</p>
         </section>
       </main>
