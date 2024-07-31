@@ -40,6 +40,7 @@ export async function shareMeal(formData: FormData) {
         !meal.image ||
         meal.image.size === 0
     ) {
+        throw new Error("Invalid input. TODO: dodelat");
         return {
             status: 400,
             message: "Invalid input. ",
