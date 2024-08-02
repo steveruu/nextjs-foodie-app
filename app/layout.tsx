@@ -5,6 +5,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "NextFood",
   description: "NextFood - a food sharing platform",
+  openGraph: {
+    title: "NextFood",
+    description: "NextFood - a food sharing platform"
+  },
+  generator: "food, nextjs, recipes",
 };
 
 export default function RootLayout({

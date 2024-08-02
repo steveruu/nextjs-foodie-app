@@ -1,6 +1,8 @@
 "use server";
+
 import { redirect } from "next/navigation";
 import { createMeal } from "./meals";
+import { revalidatePath } from "next/cache";
 
 const isInvalidText = (text: FormDataEntryValue | null, charLimit: number = 100) => {
     return (
@@ -11,7 +13,7 @@ const isInvalidText = (text: FormDataEntryValue | null, charLimit: number = 100)
     );
 };
 
-export async function shareMeal(formData: FormData) {
+export async function shareMeal(prevState : any, formData: FormData) {
     const meal = {
         title: formData.get("title"),
         summary: formData.get("summary"),
@@ -31,9 +33,13 @@ export async function shareMeal(formData: FormData) {
         !meal.image ||
         meal.image.size === 0
     ) {
-        await createMeal(meal as any);
+        return {
+            status: 400,
+            message: "Invalid input",
+        }
     }
 
     await createMeal(meal as any);
+    revalidatePath("/meals"); // tells Next.js to revalidate the cache for the /meals page - caching
     redirect("/meals");
 }

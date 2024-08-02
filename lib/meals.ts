@@ -34,9 +34,8 @@ export async function createMeal(meal: MealDB) {
     
     meal.instructions = meal.instructions.replaceAll("<", " ").replaceAll(">", " ");
 
-
     const extension = meal.image.name.split(".").pop();
-    const fileName = `${meal.slug.slice(0, 16)}-${Date.now()}.${extension}`; // to avoid duplicate images
+    const fileName = `${meal.slug.slice(0, 24)}.${extension}`; // to avoid duplicate images
 
     const stream = fs.createWriteStream(path.resolve(process.cwd(), "public/images", fileName));
     const bufferedImage = await meal.image.arrayBuffer();
