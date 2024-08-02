@@ -4,7 +4,7 @@ import mealIcon from '@/assets/icons/meal.png';
 import communityIcon from '@/assets/icons/community.png';
 import eventsIcon from '@/assets/icons/events.png';
 import classes from './page.module.css';
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
   title: "Community | NextFood",
@@ -14,9 +14,12 @@ export const metadata: Metadata = {
     description: "Join the NextFood community and share your favorite recipes"
   },
   keywords: "food, nextjs, recipes",
-  themeColor: "#ff9b05",
   creator: "@steveruu",
   robots: "index, follow"
+};
+
+export const viewport : Viewport = {
+  themeColor: "#ff9b05",
 };
 
 export default function CommunityPage() {

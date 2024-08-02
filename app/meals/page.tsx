@@ -4,7 +4,7 @@ import MealsGrid from "@/components/Meals/MealsGrid";
 import { getMeals } from "@/lib/meals";
 import { Suspense } from "react";
 import { CgSpinner } from "react-icons/cg";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
   title: "All Meals | NextFood",
@@ -14,9 +14,12 @@ export const metadata: Metadata = {
     description: "Browse all recipes shared by the NextFood community"
   },
   keywords: "food, nextjs, recipes",
-  themeColor: "#ff9b05",
   creator: "@steveruu",
   robots: "index, follow"
+};
+
+export const viewport : Viewport = {
+  themeColor: "#ff9b05",
 };
 
 async function MealLoad() {
