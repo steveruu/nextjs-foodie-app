@@ -4,6 +4,20 @@ import mealIcon from '@/assets/icons/meal.png';
 import communityIcon from '@/assets/icons/community.png';
 import eventsIcon from '@/assets/icons/events.png';
 import classes from './page.module.css';
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Community | NextFood",
+  description: "Join the NextFood community and share your favorite recipes",
+  openGraph: {
+    title: "Community | NextFood",
+    description: "Join the NextFood community and share your favorite recipes"
+  },
+  keywords: "food, nextjs, recipes",
+  themeColor: "#ff9b05",
+  creator: "@steveruu",
+  robots: "index, follow"
+};
 
 export default function CommunityPage() {
   return (

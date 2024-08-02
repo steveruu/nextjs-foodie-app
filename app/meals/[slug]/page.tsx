@@ -6,17 +6,26 @@ import { notFound } from "next/navigation";
 interface Meal {
   title: string;
   slug: string;
-  image: string; 
+  image: string;
   summary: string;
   creator: string;
   creator_email: string;
   instructions: string;
 }
 
-export default function Meal({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: { slug: string } }) {
   const meal : Meal = getMeal(params.slug) as Meal;
-
+  
   if (!meal) return notFound();
+
+  return {
+    title: meal.title + " | NextFood",
+    description: meal.summary
+  }
+}
+
+export default function Meal({ params }: { params: { slug: string } }) {
+  const meal: Meal = getMeal(params.slug) as Meal;
 
   meal.instructions = meal.instructions.replace(/\n/g, "<br />");
 
@@ -33,7 +42,7 @@ export default function Meal({ params }: { params: { slug: string } }) {
         </div>
       </header>
       <main>
-        <p className={classes.instructions} dangerouslySetInnerHTML={{__html: meal.instructions}} />
+        <p className={classes.instructions} dangerouslySetInnerHTML={{ __html: meal.instructions }} />
       </main>
     </>
   );

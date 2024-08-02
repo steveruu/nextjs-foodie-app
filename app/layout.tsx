@@ -9,7 +9,10 @@ export const metadata: Metadata = {
     title: "NextFood",
     description: "NextFood - a food sharing platform"
   },
-  generator: "food, nextjs, recipes",
+  keywords: "food, nextjs, recipes",
+  themeColor: "#ff9b05",
+  creator: "@steveruu",
+  robots: "index, follow"
 };
 
 export default function RootLayout({

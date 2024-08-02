@@ -1,3 +1,8 @@
+export const metadata = {
+    title: "404 | NextFood",
+    description: "Unfortunately, the meal you are looking for does not exist."
+};
+
 export default function NotFound() {
     return (
         <main className="not-found">
